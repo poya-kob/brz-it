@@ -1,4 +1,4 @@
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse, render
 from django.db.models import Sum
 
 from .models import Products
@@ -24,4 +24,4 @@ def detail_product(request, id, name: None):
 
 
 def test(request):
-    return HttpResponse('test pass')
+    return render(request, 'index.html')
