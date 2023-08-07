@@ -13,8 +13,11 @@ def list_products(request, *args, **kwargs):
     if cat := kwargs.get('cat', False):
         product_list = product_list.filter(category=cat)
     product_list = product_list.annotate(inven=Sum('inv__inventory'))
+    context = {
+        'products': product_list,
+    }
 
-    return HttpResponse('list products')
+    return render(request, 'product list.html', context)
 
 
 def detail_product(request, id, name: None):
