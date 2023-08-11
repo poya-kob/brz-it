@@ -1,0 +1,55 @@
+{% extends 'shared/_MainLayout.html' %}
+
+{% block content %}
+    <!-- Filter-Form -->
+    <section id="filter_form" class="inner-filter gray-bg">
+    </section>
+    <!-- /Filter-Form -->
+
+    <!--Listing-detail-->
+    <section class="listing-detail" style="direction: rtl;text-align: right">
+        <div class="container">
+            <div class="listing_detail_head row">
+                <div class="col-md-9">
+                    <h2>{{ product.title }} </h2>
+                    <div class="car-location"><h4><span><i class="fa fa-certificate"
+                                                           aria-hidden="true"></i> {{ product.category.name }}</span>
+                    </h4>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="price_info">
+                        <p></p>
+                        <p class="old_price"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="main_features">
+                        <ul>
+                            {% for att in product.inv.all %}
+                                <li><i class="fa {% if att.inventory > 0 %}fa-check-square-o{% else %}fa-ban{% endif %}"
+                                       aria-hidden="true"></i>
+                                    <h5>{{ att.attribute_item.value }}</h5>
+                                    <p><h5 style="color: red">{{ att.inventory }}</h5></p>
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+
+
+                </div>
+
+
+                <div class="space-20"></div>
+                <div class="divider"></div>
+
+
+            </div>
+        </div>
+    </section>
+    <!--/Listing-detail-->
+
+{% endblock %}

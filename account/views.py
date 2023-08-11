@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 
-def logout_page():
-    pass
+def logout_page(request):
+    logout(request)
+    return redirect("/")
 
 
 def login_page():

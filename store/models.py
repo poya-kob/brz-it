@@ -15,7 +15,6 @@ class Category(models.Model):
 
 class Products(models.Model):
     title = models.CharField(max_length=150, verbose_name="نام")
-    unit = models.CharField(max_length=50, default="عدد")
     created_time = models.DateTimeField(verbose_name="زمان ایجاد محصول", auto_now_add=True)
     supplier = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="ثبت کننده محصول")
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, verbose_name='دسته بندی')
@@ -57,6 +56,7 @@ class AttributeItems(models.Model):
 
 class ProductInventory(models.Model):
     inventory = models.IntegerField(verbose_name="موجودی محصول", default=1)
+    unit = models.CharField(max_length=50, default="عدد")
     income_time = models.DateField(auto_now_add=True, verbose_name='زمان ورود به انبار')
     product: Products = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='inv',
                                           verbose_name='محصول')
@@ -77,6 +77,7 @@ class ProductOutcome(models.Model):
     outcome_time = models.DateField(auto_now_add=True, verbose_name="زمان خروج از انبار")
     product_inventory = models.ForeignKey(ProductInventory, on_delete=models.PROTECT, related_name='outcome',
                                           verbose_name='موجودی')
+    description = models.TextField(null=True)
 
     class Meta:
         verbose_name = 'کسری محصول'

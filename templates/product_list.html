@@ -6,7 +6,7 @@
         <div class="container">
             <div class="page-header_wrap">
                 <div class="page-heading">
-                    <h1>لیست خودروها</h1>
+                    <h1>لیست موجودی انبار</h1>
                 </div>
 
             </div>
@@ -24,7 +24,7 @@
                     <div class="mobile_search">
                         <div class="sidebar_widget">
                             <div class="widget_heading">
-                                <h5><i class="fa fa-filter" aria-hidden="true"></i> اتومبیل رویایی خود را پیدا کنید
+                                <h5><i class="fa fa-filter" aria-hidden="true"></i>سلام
                                 </h5>
                             </div>
                             <div class="sidebar_filter">
@@ -71,17 +71,11 @@
                                                data-slider-max="6000" data-slider-step="5"
                                                data-slider-value="[1000,5000]"/>
                                     </div>
-                                    <div class="form-group select">
-                                        <select class="form-control">
-                                            <option> نوع اتومبیل</option>
-                                            <option> اتومبیل جدید</option>
-                                            <option> ماشین دست دوم</option>
-                                        </select>
-                                    </div>
+
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-block"><i class="fa fa-search"
-                                                                                       aria-hidden="true"></i> جستجوی
-                                            خودرو
+                                                                                       aria-hidden="true"></i>اعمال
+                                            تغییرات
                                         </button>
                                     </div>
                                 </form>
@@ -90,19 +84,19 @@
                     </div>
                     <div class="result-sorting-wrapper">
                         <div class="sorting-count">
-                            <p><span> 50 مورد نتایج جستجو</span></p>
+                            <p><span> {{ products.count }} مورد نتایج جستجو</span></p>
                         </div>
                         <div class="result-sorting-by">
-                            <p>مرتب سازی بر اساس :</p>
-                            <form action="#" method="post">
-                                <div class="form-group select sorting-select">
-                                    <select class="form-control ">
-                                        <option> قیمت (پایین تا زیاد)</option>
-                                        <option> قیمت (بالا به پایین)</option>
-                                        <option> جدیدترین موارد</option>
-                                    </select>
-                                </div>
-                            </form>
+{#                            <p>مرتب سازی بر اساس :</p>#}
+{#                            <form action="#" method="post">#}
+{#                                <div class="form-group select sorting-select">#}
+{#                                    <select class="form-control ">#}
+{#                                        <option> قیمت (پایین تا زیاد)</option>#}
+{#                                        <option> قیمت (بالا به پایین)</option>#}
+{#                                        <option> جدیدترین موارد</option>#}
+{#                                    </select>#}
+{#                                </div>#}
+{#                            </form>#}
                         </div>
                     </div>
                     <div class="row">
@@ -116,13 +110,15 @@
                                     </div>
                                     <div class="product-listing-content">
                                         <h5><a href="#">{{ product.title }}</a></h5>
-                                        <p class="list-price">{{ product.inven }} {{ product.unit }}</p></br>
-                                        <div class="car-location"><span><i class="fa fa-map-marker"
-                                                                           aria-hidden="true"></i> آذربایجان غربی خوی</span>
+                                        <p class="list-price">{{ product.inven }} عدد</p></br>
+                                        <div class="car-location">
                                         </div>
                                         <ul class="features_list">
                                             {% for att in product.inv.all %}
-                                                <li><i class='fa fa-internet-explorer' aria-hidden="true"></i>({{ att.attribute_item.value }}) - {{ att.inventory }}</li>
+                                                <li>
+                                                    <i class="fa {% if att.inventory > 0 %}fa-check-square-o{% else %}fa-ban{% endif %}"
+                                                       aria-hidden="true"></i>({{ att.attribute_item.value }})
+                                                    - {{ att.inventory }}</li>
                                             {% endfor %}
 
                                         </ul>
@@ -148,68 +144,15 @@
                 <aside class="col-md-3 col-md-pull-9" style="right: 0 !important;">
                     <div class="sidebar_widget sidebar_search_wrap">
                         <div class="widget_heading">
-                            <h5><i class="fa fa-filter" aria-hidden="true"></i> اتومبیل رویایی خود را پیدا کنید </h5>
+                            <h5><i class="fa fa-filter" aria-hidden="true"></i> فیلتر </h5>
                         </div>
                         <div class="sidebar_filter">
-                            <form action="#" method="get">
-                                <div class="form-group select">
-                                    <select class="form-control">
-                                        <option> مکان را انتخاب کنید</option>
-                                        <option> مکان 1</option>
-                                        <option> مکان 2</option>
-                                        <option> مکان 3</option>
-                                        <option> مکان 4</option>
-                                    </select>
-                                </div>
-                                <div class="form-group select">
-                                    <select class="form-control">
-                                        <option> مارک را انتخاب کنید</option>
-                                        <option> مارک 1</option>
-                                        <option> مارک 2</option>
-                                        <option> مارک 3</option>
-                                        <option> مارک 4</option>
-                                    </select>
-                                </div>
-                                <div class="form-group select">
-                                    <select class="form-control">
-                                        <option> مدل را انتخاب کنید</option>
-                                        <option> سری 1</option>
-                                        <option> سری 2</option>
-                                        <option> سری 3</option>
-                                        <option> سری 4</option>
-                                    </select>
-                                </div>
-                                <div class="form-group select">
-                                    <select class="form-control">
-                                        <option> سال مدل</option>
-                                        <option> 1398</option>
-                                        <option> 1397</option>
-                                        <option> 1396</option>
-                                        <option> 1395</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">محدوده قیمت ($) </label>
-                                    <input id="price_range" type="text" class="span2" value="" data-slider-min="50"
-                                           data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]"/>
-                                </div>
-                                <div class="form-group select">
-                                    <select class="form-control">
-                                        <option> نوع اتومبیل</option>
-                                        <option> اتومبیل جدید</option>
-                                        <option> ماشین دست دوم</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-block"><i class="fa fa-search"
-                                                                                   aria-hidden="true"></i> جستجوی
-                                        اتومبیل
-                                    </button>
-                                </div>
-                            </form>
+                            <a href="{% url 'list-product' %}">همه<br></a>
+                            {% for cat in categories %}
+                                <a href="{% url 'list-product' %}?cat={{ cat.name }}">{{ cat.name }}<br></a>
+                            {% endfor %}
                         </div>
                     </div>
-
                 </aside>
                 <!--/Side-Bar-->
             </div>
