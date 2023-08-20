@@ -1,11 +1,11 @@
-from django.shortcuts import HttpResponse, render
+from django.shortcuts import render
 from django.db.models import Sum
 
 from .models import Products, Category
 
 
-def create_product(request):
-    pass
+def income_product(request):
+    return render(request, 'income_products.html')
 
 
 def list_products(request):

@@ -1,0 +1,66 @@
+{% extends 'shared/_MainLayout.html' %}
+
+{% block content %}
+    <!--Post-vehicle-->
+    <section class="user_profile inner_pages" style="direction: rtl;text-align: right">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-3">
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <div class="profile_wrap">
+                        <h5 class="uppercase underline">ثبت خروج اقلام از انبار</h5>
+                        <form action="#" method="get" >
+                            <table >
+
+                                <tr >
+                                    <th> دسته بندی</th>
+                                    <th> محصول</th>
+                                    <th> ویژگی محصول</th>
+                                    <th> تعداد</th>
+                                    <th> توضیحات</th>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                            <div class="form-group" style="float: right">
+                                <label class="control-label">دسته بندی</label>
+                                <select class="form-control white_bg">
+                                    <option> مارک را انتخاب کنید</option>
+                                    <option> مارک 1</option>
+                                    <option> مارک 2</option>
+                                    <option> مارک 3</option>
+                                    <option> مارک 4</option>
+                                </select>
+                                <label class="control-label">محصول</label>
+                                <select class="form-control white_bg">
+                                    <option> مدل را انتخاب کنید</option>
+                                    <option> مدل 2</option>
+                                    <option> مدل 3</option>
+                                    <option> مدل 4</option>
+                                </select>
+                                <label class="control-label">نوع محصول</label>
+                                <select class="form-control white_bg">
+                                    <option>ورژن</option>
+                                    <option>ورژن 1.1</option>
+                                    <option>ورژن 1.2</option>
+                                </select>
+                                <label class="control-label">تعداد</label>
+                                <input class="form-control white_bg" id="Price" type="text">
+                                <label class="control-label">توضیحات</label>
+                                <textarea class="form-control white_bg" rows="4"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/Post-vehicle-->
+{% endblock %}
